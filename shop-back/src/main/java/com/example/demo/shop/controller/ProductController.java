@@ -95,6 +95,7 @@ public class ProductController {
 			if (files.length > 0) {
 				for (String f : files) {
 					map.put("file" + cnt, "/img/" + num + "/" + f);
+					cnt++;
 				}
 			}
 			map.put("p", p);
