@@ -161,25 +161,8 @@ public class ProductController {
 		boolean flag = false;
 		Map map = new HashMap();
 		try {
-			Product p2 = service.editProduct(p);
-	
-			int num = p2.getNum();
-			String fpath = basePath + num + "\\";
-			MultipartFile[] files = { p.getFile1(), p.getFile2(), p.getFile3(), p.getFile4() };
-			int cnt = 1;
-
-			String end = "";
-			for (MultipartFile f : files) {
-				if (f != null) {
-					int idx = f.getOriginalFilename().lastIndexOf(".");
-					end = f.getOriginalFilename().substring(idx);// .확장자 추출 1.jpg 2.png
-					File ff = new File(fpath + cnt + end);
-					f.transferTo(ff); // 파일생성
-					cnt++;
-		
-					flag = true;
-				}
-			}
+			service.editProduct(p);
+			flag = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
