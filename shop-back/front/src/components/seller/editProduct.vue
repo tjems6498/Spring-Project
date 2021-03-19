@@ -3,7 +3,7 @@
   <h3>{{num}}번 상품 편집 페이지</h3>
   <table>
     <tr>
-      <td :key="f" v-for="f in files">{{f}}<img src="f" style="width:100px;height:100px"></td>
+      <td :key="f" v-for="f in files"><img :src="f" style="width:200px;height:200px"></td>
     </tr>
   </table>
   <div><label for="title">title</label><input type="text" id="title" v-model="p.title" /></div>
@@ -51,7 +51,7 @@ export default {
   methods: {
     save: function() {
       const self = this;
-      const form = new URLSearchParams(); //폼파람 객체.
+      const form = new URLSearchParams(); // URLSearchParams: 읽거나 수정할때 사용 / 폼파람 객체.
       form.append('num', self.p.num)
       form.append('title', self.p.title)
       form.append('content', self.p.content)

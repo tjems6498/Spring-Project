@@ -40,7 +40,7 @@ export default {
               if (self.m.type.num == 2) {
                 path = '/smain'
               } else if (self.m.type.num == 3) {
-                path = '/cmain'
+                path = '/omain'
               } else {
                 alert("준비되지 않음")
                 return

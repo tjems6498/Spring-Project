@@ -55,7 +55,7 @@ public class ProductController {
 					int idx = f.getOriginalFilename().lastIndexOf(".");
 					end = f.getOriginalFilename().substring(idx);// .확장자 추출 1.jpg 2.png
 					File ff = new File(fpath + cnt + end);
-					f.transferTo(ff); // 파일생성
+					f.transferTo(ff);
 					cnt++;
 				}
 			}
@@ -94,7 +94,7 @@ public class ProductController {
 			int cnt = 1;
 			if (files.length > 0) {
 				for (String f : files) {
-					map.put("file" + cnt, "/img/" + num + "/" + f);
+					map.put("file" + cnt, "/products/img/" + num + "/" + f);
 					cnt++;
 				}
 			}

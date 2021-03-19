@@ -60,14 +60,12 @@ export default {
       }); //path로 params 가져가면 안됨.
     },
     del: function(num) {
-      const self = this
       this.$axios.delete('/products/' + num)
         .then(function(response) { //response: 응답객체
           //alert(response.status);
           if (response.data.result) {
             alert('삭제완료')
-            self.$router.push('/smain');
-            location.reload();
+            location.reload()
           } else {
             alert('삭제실패')
           }

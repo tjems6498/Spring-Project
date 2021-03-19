@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.shop.model.ShopMember;
 import com.example.demo.shop.model.ShopOrder;
 import com.example.demo.shop.service.OrderService;
 
@@ -56,6 +57,24 @@ public class OrderController {
 		return map;
 	}
 	
+	@GetMapping("/{consumer}/members")
+	public Map getByConsumer(@PathVariable("consumer") String consumer) {
+		boolean flag = false;
+		Map map = new HashMap();
+		try {
+			ShopMember m = new ShopMember();
+			m.setId(consumer);
+			ArrayList<ShopOrder> list = service.getByConsumer(m);
+			map.put("list", list);
+			flag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		map.put("result", flag);
+		return map;
+	}
+	
+
 	@DeleteMapping("/{num}")
 	public Map delOrder(@PathVariable("num") int num) {
 		boolean flag = false;
